@@ -1,6 +1,40 @@
 const graphql = require("graphql");
+const _ = require("lodash");
 
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
+
+const events = [
+  {
+    name: "Glastonbury",
+    category: "Music",
+    id: "1",
+  },
+  {
+    name: "Champions League",
+    category: "Sport",
+    id: "2",
+  },
+  {
+    name: "Russel Howard",
+    category: "Entertainment",
+    id: "3",
+  },
+  {
+    name: "Superbowl",
+    category: "Sport",
+    id: "4",
+  },
+  {
+    name: "Bastille",
+    category: "Music",
+    id: "5",
+  },
+  {
+    name: "Shrek's Adventure",
+    category: "Entertainment",
+    id: "6",
+  },
+];
 
 const EventType = new GraphQLObjectType({
   name: "Event",
@@ -23,3 +57,5 @@ const RootQuery = GraphQLObjectType({
     },
   },
 });
+
+module.exports = new GraphQLSchema({ query: RootQuery });
