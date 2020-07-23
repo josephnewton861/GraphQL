@@ -45,7 +45,7 @@ const EventType = new GraphQLObjectType({
   }),
 });
 
-const RootQuery = GraphQLObjectType({
+const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
     event: {
@@ -53,6 +53,7 @@ const RootQuery = GraphQLObjectType({
       args: { id: { type: GraphQLString } },
       resolve(parent, args) {
         // code to get data from db or other source
+        return _.find(events, { id: args.id });
       },
     },
   },
