@@ -103,6 +103,18 @@ const RootQuery = new GraphQLObjectType({
         return _.find(promoters, { id: args.id });
       },
     },
+    events: {
+      type: new GraphQLList(EventType),
+      resolve(parent, args) {
+        return events;
+      },
+    },
+    promoters: {
+      type: new GraphQLList(PromoterType),
+      resolve(parent, args) {
+        return promoters;
+      },
+    },
   },
 });
 
